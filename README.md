@@ -64,8 +64,8 @@ We will use [blueterm](https://play.google.com/store/apps/details?id=es.pymasde.
 
 Open bluterm, click settings and connect to a device. From the paired devices you should find the mock detector. Connect to it. Then you can start typing and everything you type should be reflected in the server and depending on the server's configuration you can get something back. For example look at the screenshot below.
 
-![Server](https://imgur.com/y1yEHXt)
-![Client](https://imgur.com/Fv4Mz6K)
+![Server](https://i.imgur.com/y1yEHXt.png)
+![Client](https://i.imgur.com/Fv4Mz6K.png)
 
 
 ## Miscellaneous
