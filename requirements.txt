@@ -1,2 +1,4 @@
 pybluez
 click
+ethereum
+pysha3
