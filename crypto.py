@@ -58,7 +58,7 @@ class Account(object):
     def create_signed_message(self, user_address_hex, duration_seconds):
         message_data = (
             bytearray(address_decoder(user_address_hex)) +
-            bytearray(struct.pack("L", duration_seconds))
+            bytearray(struct.pack(">Q", duration_seconds))
         )
         sig = self.sign(message_data)
         message_data = message_data + bytearray(sig)
