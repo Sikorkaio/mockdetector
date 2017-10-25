@@ -1,3 +1,4 @@
+import time
 import sys
 import click
 from bluetooth import (
@@ -102,12 +103,6 @@ def run_bt_server():
     required=False,
     help='An address of the user for whom to create a signed message'
 )
-@click.option(
-    '--duration',
-    type=int,
-    required=False,
-    help='Duration for which user is considered present in secods'
-)
 @click.group(invoke_without_command=True)
 @click.pass_context
 def main(ctx, action, **kwargs):
@@ -123,9 +118,6 @@ def main(ctx, action, **kwargs):
         if 'passfile' not in kwargs or kwargs['passfile'] is None:
             print("For keysign you should provide a password file for the key")
             sys.exit(1)
-        if 'duration' not in kwargs or kwargs['duration'] is None:
-            print("For keysign you should provide a duration")
-            sys.exit(1)
         if 'user_address' not in kwargs or kwargs['user_address'] is None:
             print("For keysign you should provide a user-address")
             sys.exit(1)
@@ -133,10 +125,9 @@ def main(ctx, action, **kwargs):
         acc = Account(kwargs['keyfile'], kwargs['passfile'])
         data = acc.create_signed_message(
             kwargs['user_address'],
-            kwargs['duration']
+            int(time.time()),
         )
         print(data)
-
 
 
 if __name__ == "__main__":
