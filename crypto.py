@@ -43,7 +43,7 @@ class Account(object):
         return binascii.hexlify(bytearray(
             sha3(self.private_key.public_key.format(
                 compressed=False)[1:])[-20:]
-        ))
+        )).decode('utf-8')
 
     def sign(self, messagedata):
         signature = self.private_key.sign_recoverable(
